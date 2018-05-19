@@ -6,6 +6,7 @@ public class World {
     private Board Board;
     private Kodung kodung;
     private Mall mall;
+    public int gameState = 1; // first question
 
     World(Board Board){
         this.Board = Board;

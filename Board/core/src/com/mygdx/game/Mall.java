@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector2;
 
 import java.awt.*;
@@ -11,6 +12,9 @@ public class Mall {
     public int width;
     private Rectangle rectangle;
     World world;
+    private boolean isPlayed = false;
+    Sound correct;
+    Sound wrong;
 
     public Mall(int x,int y,World world){
         this.world = world;
@@ -18,6 +22,8 @@ public class Mall {
 //        width = 312;
 //        height = 100;
         rectangle = new Rectangle(x,y,width,height);
+        correct = Gdx.audio.newSound(Gdx.files.internal("correct.mp3"));
+        wrong = Gdx.audio.newSound(Gdx.files.internal("wrong.mp3"));
     }
 
     public void render(float delta){
@@ -26,6 +32,13 @@ public class Mall {
 //            System.out.println("pass");
             width = 310;
             height = 95;
+            if(Gdx.input.isTouched() && this.world.gameState == 2){
+                this.world.gameState = 3;
+                if(!isPlayed){
+                    correct.play();
+                    isPlayed = true;
+                }
+            }
         }
         else{
             width = 317;
