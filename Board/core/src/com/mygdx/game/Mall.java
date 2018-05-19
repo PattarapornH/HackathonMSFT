@@ -19,8 +19,6 @@ public class Mall {
     public Mall(int x,int y,World world){
         this.world = world;
         position = new Vector2(x,y);
-//        width = 312;
-//        height = 100;
         rectangle = new Rectangle(x,y,width,height);
         correct = Gdx.audio.newSound(Gdx.files.internal("correct.mp3"));
         wrong = Gdx.audio.newSound(Gdx.files.internal("wrong.mp3"));

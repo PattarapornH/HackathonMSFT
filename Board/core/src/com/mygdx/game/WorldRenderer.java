@@ -43,6 +43,9 @@ public class WorldRenderer {
         else if(this.world.gameState == 3){
             thirdAsk();
         }
+        else if(this.world.gameState == 4){
+            finish();
+        }
         batch.end();
     }
 
@@ -80,5 +83,10 @@ public class WorldRenderer {
         batch.draw(kodung,positionkodung.getPosition().x,positionkodung.getPosition().y,positionkodung.width,positionkodung.height);
 //        batch.draw(mall,positionmall.getPosition().x,positionmall.getPosition().y,positionmall.width,positionmall.height);
         batch.draw(q3,250,150);
+    }
+
+    public void finish(){
+        SpriteBatch batch = board.batch;
+        batch.draw(bg,0,0);
     }
 }

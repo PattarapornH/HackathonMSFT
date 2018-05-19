@@ -44,6 +44,10 @@ public class Ship {
         else{
             width = 317;
             height = 111;
+//            wrong.play();
+//            if(Gdx.input.isTouched() && this.world.gameState != 1){
+//                wrong.play();
+//            }
         }
     }
 
