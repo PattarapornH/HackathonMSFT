@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -14,6 +15,11 @@ public class WorldRenderer {
     private Texture q1;
     private Texture q2;
     private Texture q3;
+    private Texture mind;
+    private int cnt = 0;
+
+    Music first;
+    Music second;
     Board board;
 
     public WorldRenderer(Board board,World world){
@@ -26,6 +32,9 @@ public class WorldRenderer {
         q1 = new Texture("learn_Q1.png");
         q2 = new Texture("learn_Q2.png");
         q3 = new Texture("learn_Q3.png");
+        mind = new Texture("BG_mindanao_harbor2.png");
+        first = Gdx.audio.newMusic(Gdx.files.internal("scene9.mp3"));
+        second = Gdx.audio.newMusic(Gdx.files.internal("scene9.2.mp3"));
     }
 
     public void render(float delta){
@@ -34,7 +43,21 @@ public class WorldRenderer {
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
         batch.begin();
 //        Ship positionship = world.getship();
-        if(this.world.gameState == 1) {
+        if(this.world.gameState == 0){
+            drawMind();
+            if(this.world.totalTime - this.world.startTime <= 11){
+                first.play();
+            }
+            else if(this.world.totalTime - this.world.startTime > 11 && this.world.totalTime - this.world.startTime <=16  && cnt == 0){
+                second.play();
+                cnt++;
+            }
+            else if(this.world.totalTime - this.world.startTime > 16){
+                this.world.gameState = 1;
+                this.world.startTime = this.world.totalTime;
+            }
+        }
+        else if(this.world.gameState == 1) {
             firstAsk();
         }
         else if(this.world.gameState == 2){
@@ -88,5 +111,10 @@ public class WorldRenderer {
     public void finish(){
         SpriteBatch batch = board.batch;
         batch.draw(bg,0,0);
+    }
+
+    public void drawMind(){
+        SpriteBatch batch = board.batch;
+        batch.draw(mind,0,0);
     }
 }

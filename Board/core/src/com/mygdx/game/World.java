@@ -10,8 +10,11 @@ public class World {
     private Board Board;
     private Kodung kodung;
     private Mall mall;
-    public int gameState = 1; // first question
+    public int gameState = 0; // first question
     Sound wrong;
+    public float deltaTime;
+    public float totalTime = 0;
+    public float startTime = 0;
 
     World(Board Board){
         this.Board = Board;
@@ -28,6 +31,12 @@ public class World {
         mall.render(delta);
         wrongFirst(Gdx.input.getX(),Gdx.input.getY());
         wrongSecond(Gdx.input.getX(),Gdx.input.getY());
+        Timer();
+    }
+
+    public void Timer() {
+        deltaTime = Gdx.graphics.getDeltaTime();
+        totalTime += deltaTime;
     }
 
     public boolean pointOnShip(int x,int y){
