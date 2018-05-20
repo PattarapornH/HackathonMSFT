@@ -33,7 +33,7 @@ public class World {
 
     public void update(float delta){
         Timer();
-        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
+//        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
 //        music.play();
 //        if((int)totalTime >= 3){
 //            gameState = -1;

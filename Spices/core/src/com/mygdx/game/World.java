@@ -29,7 +29,7 @@ public class World {
     }
 
     public void update(float delta){
-        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
+//        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
 //        System.out.println(gameState);
         chan.render(delta);
         kan.render(delta);
