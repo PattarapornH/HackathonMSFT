@@ -30,11 +30,9 @@ public class Yeera {
         if(this.world.pointOnYee(Gdx.input.getX(),Gdx.input.getY())){
             width = 450;
             height = 180;
-            if(Gdx.input.isTouched()){
-                if(!isPlayed){
-                    wrong.play();
-                    isPlayed = true;
-                }
+            if(Gdx.input.justTouched()){
+                wrong.play();
+                isPlayed = true;
             }
         }
         else{

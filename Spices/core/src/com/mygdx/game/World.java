@@ -11,10 +11,12 @@ public class World {
     private Pepper pep;
     private Correct correctKhan;
     private Correct correctChan;
-    public int gameState = 0; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
+    public int gameState = -2; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
 //    public boolean chooseKan = false;
 //    public boolean chooseChan = false;
     public long startTime;
+    public float deltaTime;
+    public float totalTime = 0;
 
     public World(Spices spices){
         chan = new Chan(10,10,this);
@@ -30,12 +32,20 @@ public class World {
 
     public void update(float delta){
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
-//        System.out.println(gameState);
+        System.out.println(gameState + " " + (int)totalTime);
         chan.render(delta);
         kan.render(delta);
         yee.render(delta);
         gin.render(delta);
         pep.render(delta);
+        Timer();
+    }
+
+    public void Timer() {
+        deltaTime = Gdx.graphics.getDeltaTime();
+//        sec = (int) (totalTime % 60);
+        totalTime += deltaTime;
+//        return sec;
     }
 
     public boolean pointOnChan(int x,int y){

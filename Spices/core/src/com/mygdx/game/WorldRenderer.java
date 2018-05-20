@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -14,8 +16,15 @@ public class WorldRenderer {
     private Texture corr1;
     private Texture corr2;
     private Texture info;
+    private Texture merch1;
+    private Texture merch2;
+
     Spices spices;
     World world;
+    Music first;
+    Music second;
+    Music bgMusic;
+    private int cnt = 0;
 
     public WorldRenderer(Spices spices,World world) {
         this.spices = spices;
@@ -29,13 +38,39 @@ public class WorldRenderer {
         corr1 = new Texture("icon_correct.png");
         corr2 = new Texture("icon_correct.png");
         info = new Texture("spices_new.png");
+        merch1 = new Texture("spices_merchant1.png");
+        merch2 = new Texture("spices_merchant2.png");
+        first = Gdx.audio.newMusic(Gdx.files.internal("scene16.2.mp3"));
+        second = Gdx.audio.newMusic(Gdx.files.internal("scene16.3.mp3"));
+        bgMusic = Gdx.audio.newMusic(Gdx.files.internal("GamingBG.mp3"));
     }
 
     public void render(float delta){
         SpriteBatch batch = this.spices.batch;
-//        System.out.println("pass");
+//        System.out.println("pass");\
+        bgMusic.play();
         batch.begin();
-        if(this.world.gameState == 0) {
+        if(this.world.gameState == -2){
+            merchant1();
+            if(cnt == 0) {
+                first.play();
+                cnt++;
+            }
+            if((int)this.world.totalTime == 4){
+                this.world.gameState = -1;
+            }
+        }
+        else if(this.world.gameState == -1){
+            merchant2();
+            if(cnt == 1) {
+                second.play();
+                cnt++;
+            }
+            if((int)this.world.totalTime == 7){
+                this.world.gameState = 0;
+            }
+        }
+        else if(this.world.gameState == 0) {
             play();
         }
         else if(this.world.gameState == 1){
@@ -55,6 +90,18 @@ public class WorldRenderer {
         }
         batch.end();
     }
+
+    public void merchant1(){
+        SpriteBatch batch = this.spices.batch;
+        batch.draw(merch1,0,0);
+    }
+
+
+    public void merchant2(){
+        SpriteBatch batch = this.spices.batch;
+        batch.draw(merch2,0,0);
+    }
+
     public void play(){
         SpriteBatch batch = this.spices.batch;
         batch.draw(bg,0,0);

@@ -29,11 +29,9 @@ public class Ginger {
         if(this.world.pointOnGin(Gdx.input.getX(),Gdx.input.getY())){
             width = 450;
             height = 180;
-            if(Gdx.input.isTouched()){
-                if(!isPlayed){
-                    wrong.play();
-                    isPlayed = true;
-                }
+            if(Gdx.input.justTouched()){
+                wrong.play();
+                isPlayed = true;
             }
         }
         else{
