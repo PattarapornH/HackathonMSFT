@@ -23,7 +23,7 @@ public class WorldRenderer {
     World world;
     Music first;
     Music second;
-    Music bgMusic;
+//    Music bgMusic;
     private int cnt = 0;
 
     public WorldRenderer(Spices spices,World world) {
@@ -42,13 +42,13 @@ public class WorldRenderer {
         merch2 = new Texture("spices_merchant2.png");
         first = Gdx.audio.newMusic(Gdx.files.internal("scene16.2.mp3"));
         second = Gdx.audio.newMusic(Gdx.files.internal("scene16.3.mp3"));
-        bgMusic = Gdx.audio.newMusic(Gdx.files.internal("GamingBG.mp3"));
+//        bgMusic = Gdx.audio.newMusic(Gdx.files.internal("GamingBG.mp3"));
     }
 
     public void render(float delta){
         SpriteBatch batch = this.spices.batch;
 //        System.out.println("pass");\
-        bgMusic.play();
+//        bgMusic.play();
         batch.begin();
         if(this.world.gameState == -2){
             merchant1();
