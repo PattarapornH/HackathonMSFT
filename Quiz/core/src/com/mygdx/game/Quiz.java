@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Quiz extends Game{
 	SpriteBatch batch;
-	Texture img;
+//	Texture img;
 	
 	@Override
 	public void create () {
