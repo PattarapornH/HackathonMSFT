@@ -22,7 +22,7 @@ public class World {
     }
 
     public void update(float delta){
-//        if(gameState == 1 && !)
+//        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
         ship.render(delta);
         kodung.render(delta);
         mall.render(delta);
@@ -31,13 +31,13 @@ public class World {
     }
 
     public boolean pointOnShip(int x,int y){
-        return (x >= 152 && x <= 464) && (y >= 31 && y <= 133);
+        return (x >= 229 && x <= 697) && (y >= 39 && y <= 185);
     }
     public boolean pointOnKodung(int x,int y) {
-        return (x >= 494 && x <= 801) && (y >= 31 && y <= 133);
+        return (x >= 736 && x <= 1204) && (y >= 39 && y <= 185);
     }
     public boolean pointOnMall(int x,int y) {
-        return (x >= 833 && x <= 1147) && (y >= 31 && y <= 133);
+        return (x >= 1246 && x <= 1729) && (y >= 39 && y <= 1729);
     }
 
     public void wrongFirst(int x,int y){

@@ -30,7 +30,7 @@ public class WorldRenderer {
 
     public void render(float delta){
         SpriteBatch batch = board.batch;
-        System.out.println(this.world.gameState);
+//        System.out.println(this.world.gameState);
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
         batch.begin();
 //        Ship positionship = world.getship();

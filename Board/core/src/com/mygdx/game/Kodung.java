@@ -22,7 +22,6 @@ public class Kodung {
 //        height = 100;
         rectangle = new Rectangle(x,y,width,height);
         correct = Gdx.audio.newSound(Gdx.files.internal("correct.mp3"));
-
     }
 
     public void render(float delta){
