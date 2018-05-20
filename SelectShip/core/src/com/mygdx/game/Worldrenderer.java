@@ -35,7 +35,7 @@ public class Worldrenderer {
     public void render(float delta){
 //        System.out.println(this.world.gameState);
 //        this.world.Timer();
-//        System.out.println((int)this.world.totalTime);
+//        System.out.println((int)this.world.totalTime + " " + (int)this.world.startTime);
         if((int)this.world.totalTime == 3 && this.world.gameState == -2){
 //            System.out.println("pass");
             this.world.gameState = -1;
@@ -60,9 +60,15 @@ public class Worldrenderer {
         }
         else if(this.world.gameState == 2){
             afterWrongChinese();
+            if(this.world.totalTime - this.world.startTime >= 5){
+                this.world.gameState = 0;
+            }
         }
         else if(this.world.gameState == 3){
             afterWrongViking();
+            if(this.world.totalTime - this.world.startTime >= 5){
+                this.world.gameState = 0;
+            }
         }
         batch.end();
     }

@@ -30,6 +30,7 @@ public class shipViking {
             height = 220;
             if(Gdx.input.isTouched()){
                 this.world.gameState = 3;
+                this.world.startTime = this.world.totalTime;
                 if(!isPlayed){
                     wrong.play();
                     isPlayed = true;

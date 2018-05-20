@@ -16,12 +16,11 @@ public class World {
     private Wrong wrong;
     public int gameState = 0 ; //before select = -2 -1 select = 0 after select = 1
     public float deltaTime;
-//    public int sec;
     public float totalTime = 0;
+    public float startTime;
 
     World(SelectShip SelectShip) {
         this.SelectShip = SelectShip;
-//        this.shipcar = shipcar;
         shipcar = new shipCaravel(1250,700,this);
         shipchi = new shipChinese(1250,700,this);
         shipvik = new shipViking(1250,700,this);
@@ -59,8 +58,6 @@ public class World {
         return (x >= 484 && x <= 808) && (y >= 369 && y <= 616);
     }
 
-
-//    public boolean clickOnShipCar
 
     shipCaravel getshipcar(){
         return shipcar;
