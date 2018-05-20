@@ -28,12 +28,9 @@ public class Kodung {
         if(this.world.pointOnKodung(Gdx.input.getX(),Gdx.input.getY())){
             width = 310;
             height = 95;
-            if(Gdx.input.isTouched() && this.world.gameState == 3){
+            if(Gdx.input.justTouched() && this.world.gameState == 3){
                 this.world.gameState = 4;
-                if(!isPlayed){
-                    correct.play();
-                    isPlayed = true;
-                }
+                correct.play();
             }
         }
         else{

@@ -50,13 +50,13 @@ public class World {
     }
 
     public void wrongFirst(int x,int y){
-        if((pointOnKodung(x,y) || pointOnMall(x,y)) && Gdx.input.isTouched() && gameState == 1){
+        if((pointOnKodung(x,y) || pointOnMall(x,y)) && Gdx.input.justTouched() && gameState == 1){
             wrong.play();
         }
     }
 
     public void wrongSecond(int x,int y){
-        if(pointOnKodung(x,y) && Gdx.input.isTouched() && gameState == 2){
+        if(pointOnKodung(x,y) && Gdx.input.justTouched() && gameState == 2){
             wrong.play();
         }
     }

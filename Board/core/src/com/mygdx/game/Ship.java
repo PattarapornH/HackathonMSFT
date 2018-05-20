@@ -30,12 +30,9 @@ public class Ship {
         if(this.world.pointOnShip(Gdx.input.getX(),Gdx.input.getY())){
             width = 310;
             height = 95;
-            if(Gdx.input.isTouched() && this.world.gameState == 1){
+            if(Gdx.input.justTouched() && this.world.gameState == 1){
                 this.world.gameState = 2;
-                if(!isPlayed){
-                    correct.play();
-                    isPlayed = true;
-                }
+                correct.play();
             }
 //            else if(Gdx.input.isTouched() && this.world.gameState != 1){
 //                wrong.play();

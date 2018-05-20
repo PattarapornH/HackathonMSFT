@@ -30,12 +30,9 @@ public class Mall {
 //            System.out.println("pass");
             width = 310;
             height = 95;
-            if(Gdx.input.isTouched() && this.world.gameState == 2){
+            if(Gdx.input.justTouched() && this.world.gameState == 2){
                 this.world.gameState = 3;
-                if(!isPlayed){
-                    correct.play();
-                    isPlayed = true;
-                }
+                correct.play();
             }
         }
         else{
