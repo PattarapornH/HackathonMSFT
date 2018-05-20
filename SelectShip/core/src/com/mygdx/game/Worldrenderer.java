@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
@@ -19,6 +21,8 @@ public class Worldrenderer {
     private Texture solVik;
     private World world;
     private SelectShip SelectShip;
+    private int cnt = 0;
+    Music sound;
 
     public Worldrenderer(SelectShip SelectShip,World world){
         bg = new Texture("BG_harbor_select_ship2.png");
@@ -32,15 +36,15 @@ public class Worldrenderer {
         solCar = new Texture("ship_caravel_sol.png");
         solChi = new Texture("ship_chinese_sol.png");
         solVik = new Texture("ship_viking_sol.png");
+        sound = Gdx.audio.newMusic(Gdx.files.internal("scene4.mp3"));
 
-        //        shipCaravel ship1;
         this.world = world;
         this.SelectShip = SelectShip;
 
     }
 
     public void render(float delta){
-        System.out.println(this.world.gameState);
+//        System.out.println(this.world.gameState);
 //        this.world.Timer();
 //        System.out.println((int)this.world.totalTime + " " + (int)this.world.startTime);
         if((int)this.world.totalTime == 3 && this.world.gameState == -2){
@@ -61,6 +65,10 @@ public class Worldrenderer {
         }
         else if(this.world.gameState == 0) {
             select();
+            if(cnt == 0){
+                sound.play();
+                cnt++;
+            }
         }
         else if(this.world.gameState == 1){
             afterCorrect();
