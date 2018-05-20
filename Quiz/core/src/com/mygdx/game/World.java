@@ -8,6 +8,9 @@ public class World {
     private Ch1 ch1;
     private Ch2 ch2;
     private Ch3 ch3;
+    public int gameState = -1; //
+    public float deltaTime;
+    public float totalTime = 0;
 
     public World(Quiz quiz){
         ch1 = new Ch1(230,400,this);
@@ -20,6 +23,14 @@ public class World {
         ch1.render(delta);
         ch2.render(delta);
         ch3.render(delta);
+        Timer();
+    }
+
+    public void Timer() {
+        deltaTime = Gdx.graphics.getDeltaTime();
+//        sec = (int) (totalTime % 60);
+        totalTime += deltaTime;
+//        return sec;
     }
 
     public boolean pointCh1(int x,int y){

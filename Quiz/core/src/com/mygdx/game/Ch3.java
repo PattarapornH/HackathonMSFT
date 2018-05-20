@@ -13,7 +13,6 @@ public class Ch3 {
     public int width;
     private Rectangle rectangle;
     World world;
-    private boolean isPlayed = false;
     Sound correct;
 //    Sound wrong;
 
@@ -29,13 +28,9 @@ public class Ch3 {
         if(this.world.pointCh3(Gdx.input.getX(),Gdx.input.getY())){
             width = 353;
             height = 80;
-            if(Gdx.input.justTouched() /*&& this.world.gameState == 0*/ ) {
-//                this.world.gameState = 2;
-//                this.world.chooseChan = true;
-//                if (!isPlayed) {
+            if(Gdx.input.justTouched() && this.world.gameState == 0 ) {
                 correct.play();
-//                    isPlayed = tzrue;
-//                }
+                this.world.gameState = 1;
             }
         }
         else{

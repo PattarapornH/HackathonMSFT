@@ -29,12 +29,7 @@ public class Ch1 {
             width = 353;
             height = 80;
             if(Gdx.input.justTouched() /*&& this.world.gameState == 0*/ ) {
-//                this.world.gameState = 2;
-//                this.world.chooseChan = true;
-//                if (!isPlayed) {
-                    wrong.play();
-//                    isPlayed = tzrue;
-//                }
+                wrong.play();
             }
         }
         else{
