@@ -14,6 +14,9 @@ public class Worldrenderer {
     private Texture harborShip;
     private Texture correct;
     private Texture wrong;
+    private Texture solCar;
+    private Texture solChi;
+    private Texture solVik;
     private World world;
     private SelectShip SelectShip;
 
@@ -26,14 +29,18 @@ public class Worldrenderer {
         harbor = new Texture("BG_harbor_select_ship1.png");
         correct = new Texture("icon_correct.png");
         wrong = new Texture("icon_wrong.png");
-//        shipCaravel ship1;
+        solCar = new Texture("ship_caravel_sol.png");
+        solChi = new Texture("ship_chinese_sol.png");
+        solVik = new Texture("ship_viking_sol.png");
+
+        //        shipCaravel ship1;
         this.world = world;
         this.SelectShip = SelectShip;
 
     }
 
     public void render(float delta){
-//        System.out.println(this.world.gameState);
+        System.out.println(this.world.gameState);
 //        this.world.Timer();
 //        System.out.println((int)this.world.totalTime + " " + (int)this.world.startTime);
         if((int)this.world.totalTime == 3 && this.world.gameState == -2){
@@ -86,7 +93,7 @@ public class Worldrenderer {
 
     public void afterCorrect(){
         SpriteBatch batch = SelectShip.batch;
-        batch.draw(bg,0,0);
+        batch.draw(solCar,0,0);
 //        batch.draw(correct,10,10);
         Correct positionCorrect = world.getCorrect();
         batch.draw(correct,1050,20,positionCorrect.width,positionCorrect.height);
@@ -94,14 +101,14 @@ public class Worldrenderer {
 
     public void afterWrongChinese(){
         SpriteBatch batch = SelectShip.batch;
-        batch.draw(bg,0,0);
+        batch.draw(solChi,0,0);
         Wrong positionWrong = world.getWrong();
         batch.draw(wrong,1050,20,positionWrong.width,positionWrong.height);
     }
 
     public void afterWrongViking(){
         SpriteBatch batch = SelectShip.batch;
-        batch.draw(bg,0,0);
+        batch.draw(solVik,0,0);
         Wrong positionWrong = world.getWrong();
         batch.draw(wrong,1050,20,positionWrong.width,positionWrong.height);
 
