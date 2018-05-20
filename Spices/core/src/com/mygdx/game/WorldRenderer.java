@@ -13,6 +13,7 @@ public class WorldRenderer {
     private Texture pep;
     private Texture corr1;
     private Texture corr2;
+    private Texture info;
     Spices spices;
     World world;
 
@@ -27,7 +28,7 @@ public class WorldRenderer {
         pep = new Texture("spices_pepper.png");
         corr1 = new Texture("icon_correct.png");
         corr2 = new Texture("icon_correct.png");
-
+        info = new Texture("spices_new.png");
     }
 
     public void render(float delta){
@@ -140,6 +141,6 @@ public class WorldRenderer {
 
     public void detail(){
         SpriteBatch batch = this.spices.batch;
-        batch.draw(bg,0,0);
+        batch.draw(info,0,0);
     }
 }

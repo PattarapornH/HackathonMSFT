@@ -29,8 +29,8 @@ public class World {
     }
 
     public void update(float delta){
-//        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
-        System.out.println(gameState);
+        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
+//        System.out.println(gameState);
         chan.render(delta);
         kan.render(delta);
         yee.render(delta);
@@ -39,19 +39,19 @@ public class World {
     }
 
     public boolean pointOnChan(int x,int y){
-        return (x >= 29 && x <= 390) && (y>=536 && y<= 704);
+        return (x >= 41 && x <= 633) && (y>=750 && y<= 976);
     }
     public boolean pointOnKan(int x,int y){
-        return (x >= 213 && x <= 613) && (y>=431 && y<= 581);
+        return (x >= 318 && x <= 917) && (y>=599 && y<= 809);
     }
     public boolean pointOnYee(int x,int y){
-        return (x >= 852 && x <= 1228) && (y>=534 && y<= 695);
+        return (x >= 1278 && x <= 1863) && (y>=743 && y<= 960);
     }
     public boolean pointOnGin(int x,int y){
-        return (x >= 455 && x <= 815) && (y>=561 && y<= 709);
+        return (x >= 665 && x <= 1249) && (y>=769 && y<= 975);
     }
     public boolean pointOnPep(int x,int y){
-        return (x >= 648 && x <= 1068) && (y>=431 && y<= 581);
+        return (x >= 991 && x <= 1604) && (y>=590 && y<= 807);
     }
 
     Chan getChan(){
