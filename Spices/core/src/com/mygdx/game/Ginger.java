@@ -12,8 +12,6 @@ public class Ginger {
     public int width;
     private Rectangle rectangle;
     World world;
-    private boolean isPlayed = false;
-    Sound correct;
     Sound wrong;
 
     public Ginger(int x,int y,World world){
@@ -31,7 +29,6 @@ public class Ginger {
             height = 180;
             if(Gdx.input.justTouched()){
                 wrong.play();
-                isPlayed = true;
             }
         }
         else{

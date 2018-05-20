@@ -12,8 +12,6 @@ public class Pepper {
     public int width;
     private Rectangle rectangle;
     World world;
-    private boolean isPlayed = false;
-    Sound correct;
     Sound wrong;
 
     public Pepper(int x,int y,World world){
@@ -30,11 +28,8 @@ public class Pepper {
         if(this.world.pointOnPep(Gdx.input.getX(),Gdx.input.getY())){
             width = 450;
             height = 180;
-            if(Gdx.input.isTouched()){
-                if(!isPlayed){
-                    wrong.play();
-                    isPlayed = true;
-                }
+            if(Gdx.input.justTouched()){
+                wrong.play();
             }
         }
         else{

@@ -29,19 +29,18 @@ public class KanPhlu {
         if(this.world.pointOnKan(Gdx.input.getX(),Gdx.input.getY())){
             width = 450;
             height = 180;
-            if(Gdx.input.justTouched() && this.world.gameState == 0 ){
-                this.world.gameState = 1;
+            if(Gdx.input.justTouched()) {
+                correct.play();
+                if (this.world.gameState == 0) {
+                    this.world.gameState = 1;
 //                this.world.chooseChan = true;
-                    correct.play();
-                    isPlayed = true;
-            }
-            else if(Gdx.input.justTouched() && this.world.gameState == 2){
+                } else if (this.world.gameState == 2) {
 
-                this.world.gameState = 3;
-                this.world.startTime = System.currentTimeMillis();
-                    correct.play();
+                    this.world.gameState = 3;
+                    this.world.startTime = this.world.totalTime;
                     isPlayed = true;
 
+                }
             }
         }
         else{

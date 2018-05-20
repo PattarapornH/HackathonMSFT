@@ -12,8 +12,6 @@ public class Yeera {
     public int width;
     private Rectangle rectangle;
     World world;
-    private boolean isPlayed = false;
-    Sound correct;
     Sound wrong;
 
     public Yeera(int x,int y,World world){
@@ -32,7 +30,6 @@ public class Yeera {
             height = 180;
             if(Gdx.input.justTouched()){
                 wrong.play();
-                isPlayed = true;
             }
         }
         else{

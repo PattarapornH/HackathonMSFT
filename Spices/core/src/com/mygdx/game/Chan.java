@@ -12,7 +12,6 @@ public class Chan {
     public int width;
     private Rectangle rectangle;
     World world;
-    private boolean isPlayed = false;
     Sound correct;
     Sound wrong;
 
@@ -28,22 +27,16 @@ public class Chan {
         if(this.world.pointOnChan(Gdx.input.getX(),Gdx.input.getY())){
             width = 450;
             height = 180;
-            if(Gdx.input.isTouched() && this.world.gameState == 0 ){
-                this.world.gameState = 2;
-//                this.world.chooseChan = true;
-                if(!isPlayed){
-                    correct.play();
-                    isPlayed = true;
-                }
-            }
-            else if(Gdx.input.isTouched() && this.world.gameState == 1){
-                this.world.gameState = 3;
-                if(!isPlayed){
-                    this.world.startTime = System.currentTimeMillis();
-                    correct.play();
-                    isPlayed = true;
-                }
+            if(Gdx.input.justTouched()) {
+                correct.play();
 
+                if (this.world.gameState == 0) {
+                    this.world.gameState = 2;
+                } else if (this.world.gameState == 1) {
+                    this.world.gameState = 3;
+                    this.world.startTime = this.world.totalTime;
+
+                }
             }
         }
         else{

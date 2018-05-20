@@ -14,7 +14,7 @@ public class World {
     public int gameState = -2; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
 //    public boolean chooseKan = false;
 //    public boolean chooseChan = false;
-    public long startTime;
+    public float startTime;
     public float deltaTime;
     public float totalTime = 0;
 
@@ -32,7 +32,7 @@ public class World {
 
     public void update(float delta){
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
-//        System.out.println(gameState + " " + (int)totalTime);
+        System.out.println(gameState + " " + (int)startTime + " " + (int)totalTime + " " + (totalTime - startTime));
         chan.render(delta);
         kan.render(delta);
         yee.render(delta);
