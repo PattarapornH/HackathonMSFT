@@ -115,7 +115,5 @@ public class Worldrenderer {
     public void beforeSelectHarbor(){
         SpriteBatch batch = SelectShip.batch;
         batch.draw(harbor,0,0);
-
-
     }
 }

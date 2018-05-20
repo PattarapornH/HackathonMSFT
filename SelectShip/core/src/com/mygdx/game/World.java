@@ -14,7 +14,7 @@ public class World {
     private shipViking shipvik;
     private Correct correct;
     private Wrong wrong;
-    public int gameState = 0 ; //before select = -2 -1 select = 0 after select = 1
+    public int gameState = -2 ; //before select = -2 -1 select = 0 after select = 1
     public float deltaTime;
     public float totalTime = 0;
     public float startTime;
