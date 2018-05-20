@@ -11,6 +11,7 @@ public class World {
     public int gameState = -1; //
     public float deltaTime;
     public float totalTime = 0;
+    public float startTime;
 
     public World(Quiz quiz){
         ch1 = new Ch1(230,400,this);

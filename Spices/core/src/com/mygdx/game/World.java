@@ -11,10 +11,10 @@ public class World {
     private Pepper pep;
     private Correct correctKhan;
     private Correct correctChan;
-    public int gameState = -2; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
+    public int gameState = -5; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
 //    public boolean chooseKan = false;
 //    public boolean chooseChan = false;
-    public float startTime;
+    public float startTime = 0;
     public float deltaTime;
     public float totalTime = 0;
 
@@ -32,7 +32,7 @@ public class World {
 
     public void update(float delta){
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
-        System.out.println(gameState + " " + (int)startTime + " " + (int)totalTime + " " + (totalTime - startTime));
+//        System.out.println(gameState + " " + (int)startTime + " " + (int)totalTime + " " + (totalTime - startTime));
         chan.render(delta);
         kan.render(delta);
         yee.render(delta);

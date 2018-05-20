@@ -20,11 +20,15 @@ public class WorldRenderer {
     private Texture merch1;
     private Texture merch2;
     private Texture check;
+    private Texture map1;
+    private Texture map2;
+    private Texture map3;
 
     Spices spices;
     World world;
     Music first;
     Music second;
+    Music ask;
     Music win;
 //    Music bgMusic;
     private int cnt = 0;
@@ -59,11 +63,15 @@ public class WorldRenderer {
         merch1 = new Texture("spices_merchant1.png");
         merch2 = new Texture("spices_merchant2.png");
         check = new Texture("checklist5.png");
+        map1 = new Texture("map_03_01.png");
+        map2 = new Texture("map_03_02.png");
+        map3 = new Texture("map_03_03.png");
 
         /*Sound*/
         first = Gdx.audio.newMusic(Gdx.files.internal("scene16.2.mp3"));
         second = Gdx.audio.newMusic(Gdx.files.internal("scene16.3.mp3"));
         win = Gdx.audio.newMusic(Gdx.files.internal("winner.mp3"));
+        ask = Gdx.audio.newMusic(Gdx.files.internal("scene16.1.mp3"));
 //        bgMusic = Gdx.audio.newMusic(Gdx.files.internal("GamingBG.mp3"));
 
         /*The End Texture*/
@@ -88,24 +96,54 @@ public class WorldRenderer {
 //        System.out.println("pass");\
 //        bgMusic.play();
         batch.begin();
-        if(this.world.gameState == -2){
+        if(this.world.gameState == -5){
+            drawMap1();
+            if(this.world.totalTime - this.world.startTime >= 1){
+                this.world.gameState = -4;
+                this.world.startTime = this.world.totalTime;
+            }
+        }
+        else if(this.world.gameState == -4){
+            drawMap2();
+            if(this.world.totalTime - this.world.startTime >= 1){
+                this.world.gameState = -3;
+                this.world.startTime = this.world.totalTime;
+            }
+        }
+        else if(this.world.gameState == -3){
+            drawMap3();
+            if(this.world.totalTime - this.world.startTime >= 2){
+                this.world.gameState = -2;
+                this.world.startTime = this.world.totalTime;
+            }
+        }
+        else if(this.world.gameState == -2){
             merchant1();
             if(cnt == 0) {
-                first.play();
+                ask.play();
                 cnt++;
             }
-            if((int)this.world.totalTime == 6){
+            if(this.world.totalTime - this.world.startTime >= 5){
                 this.world.gameState = -1;
+                this.world.startTime = this.world.totalTime;
             }
         }
         else if(this.world.gameState == -1){
             merchant2();
-            if(cnt == 1) {
+//            if(cnt == 1) {
+//                second.play();
+//                cnt++;
+//            }
+            if(this.world.totalTime - this.world.startTime <= 3){
+                first.play();
+            }
+            else if(this.world.totalTime - this.world.startTime > 3 && this.world.totalTime - this.world.startTime <= 5  && cnt == 1){
                 second.play();
                 cnt++;
             }
-            if((int)this.world.totalTime == 12){
+            else if(this.world.totalTime - this.world.startTime > 8){
                 this.world.gameState = 0;
+                this.world.startTime = this.world.totalTime;
             }
         }
         else if(this.world.gameState == 0) {
@@ -212,6 +250,22 @@ public class WorldRenderer {
         }
         batch.end();
     }
+
+    public void drawMap1(){
+        SpriteBatch batch = this.spices.batch;
+        batch.draw(map1,0,0);
+    }
+
+    public void drawMap2(){
+        SpriteBatch batch = this.spices.batch;
+        batch.draw(map2,0,0);
+    }
+
+    public void drawMap3(){
+        SpriteBatch batch = this.spices.batch;
+        batch.draw(map3,0,0);
+    }
+
 
     public void merchant1(){
         SpriteBatch batch = this.spices.batch;

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.omg.PortableInterceptor.SUCCESSFUL;
 
 public class WorldRenderer {
 
@@ -13,6 +14,7 @@ public class WorldRenderer {
     private Texture ch3;
     private Texture saler1;
     private Texture saler2;
+    private Texture check4;
     private int cnt = 0;
     Quiz quiz;
     World world;
@@ -28,6 +30,7 @@ public class WorldRenderer {
         ch3 = new Texture("quiz_ch3.png");
         saler1 = new Texture("quiz_saler_1.png");
         saler2 = new Texture("quiz_saler_2.png");
+        check4 = new Texture("checklist4.png");
         sale1 = Gdx.audio.newMusic(Gdx.files.internal("scene15.1.mp3"));
         sale2 = Gdx.audio.newMusic(Gdx.files.internal("scene15.2.mp3"));
 
@@ -48,11 +51,18 @@ public class WorldRenderer {
         }
         else if(this.world.gameState == 1){
             if(cnt == 0) {
+                this.world.startTime = this.world.totalTime;
                 sale2.play();
                 after();
                 cnt++;
             }
             after();
+            if(this.world.totalTime - this.world.startTime >= 10.5){
+                this.world.gameState = 2;
+            }
+        }
+        else if(this.world.gameState == 2){
+            showCheck();
         }
     }
 
@@ -76,5 +86,12 @@ public class WorldRenderer {
     public void after(){
         SpriteBatch batch = this.quiz.batch;
         batch.draw(saler2,0,0);
+    }
+
+    public void showCheck(){
+        SpriteBatch batch = this.quiz.batch;
+        batch.draw(check4,0,0);
+
+
     }
 }
