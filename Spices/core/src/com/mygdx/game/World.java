@@ -11,7 +11,7 @@ public class World {
     private Pepper pep;
     private Correct correctKhan;
     private Correct correctChan;
-    public int gameState = -5; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
+    public int gameState = -6; // no ans 1=chooseKan 2=chooseChan 3 = chooseBoth
 //    public boolean chooseKan = false;
 //    public boolean chooseChan = false;
     public float startTime = 0;

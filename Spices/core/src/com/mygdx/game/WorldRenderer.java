@@ -20,6 +20,7 @@ public class WorldRenderer {
     private Texture merch1;
     private Texture merch2;
     private Texture check;
+    private Texture check3;
     private Texture map1;
     private Texture map2;
     private Texture map3;
@@ -63,6 +64,7 @@ public class WorldRenderer {
         merch1 = new Texture("spices_merchant1.png");
         merch2 = new Texture("spices_merchant2.png");
         check = new Texture("checklist5.png");
+        check3 = new Texture("checklist3.png");
         map1 = new Texture("map_03_01.png");
         map2 = new Texture("map_03_02.png");
         map3 = new Texture("map_03_03.png");
@@ -96,6 +98,13 @@ public class WorldRenderer {
 //        System.out.println("pass");\
 //        bgMusic.play();
         batch.begin();
+        if (this.world.gameState == -6) {
+            drawCheck3();
+            if(this.world.totalTime - this.world.startTime >= 1.5){
+                this.world.gameState = -4;
+                this.world.startTime = this.world.totalTime;
+            }
+        }
         if(this.world.gameState == -5){
             drawMap1();
             if(this.world.totalTime - this.world.startTime >= 1){
@@ -266,6 +275,10 @@ public class WorldRenderer {
         batch.draw(map3,0,0);
     }
 
+    public void drawCheck3(){
+        SpriteBatch batch = this.spices.batch;
+        batch.draw(check3,0,0);
+    }
 
     public void merchant1(){
         SpriteBatch batch = this.spices.batch;
