@@ -32,7 +32,7 @@ public class World {
 
     public void update(float delta){
 //        System.out.println(Gdx.input.getX() + " " + Gdx.input.getY());
-        System.out.println(gameState + " " + (int/)totalTime);
+//        System.out.println(gameState + " " + (int)totalTime);
         chan.render(delta);
         kan.render(delta);
         yee.render(delta);
